@@ -19,25 +19,13 @@ class Graph:
         # for each node in graph
         for node in graph:
             print('::node is ::: ', node)
-            # for each neighbour node of a single node
+            
             for neighbour in graph[node]:
                 print('::neighbour is ::: ', neighbour)
-                # if edge exists then append
+                
                 edges.append((node, neighbour))
         return edges
     
-    # def generate_edges(self):
-    #     edges = []
-    
-    #     # for each node in graph
-    #     for node in self.graph:
-    #         print('::node is ::: ', node)
-    #         # for each neighbour node of a single node
-    #         for neighbour in self.graph[node]:
-    #             print('::neighbour is ::: ', neighbour)
-    #             # if edge exists then append
-    #             edges.append((node, neighbour))
-    #     return edges
     
     def visualize_graph(self, graph_obj):
         nx.draw(graph_obj)
