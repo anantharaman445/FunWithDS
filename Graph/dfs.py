@@ -1,5 +1,7 @@
 # heard of mackenna's gold?? :D go till the end, visit each and every adjacent node of the current node
 
+#NOTE : Thanks Geeksforgeeks.org 
+
 # Depth First search is an algorithm for searching or traversing through the graph starting from the root
 # or any arbitrary node until none of the node is unvisited. 
 
