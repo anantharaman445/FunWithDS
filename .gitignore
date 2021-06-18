@@ -9,6 +9,7 @@ OS junk files
 *.pch
 *.vspscc
 *.vssscc
+*.vscode
 *_i.c
 *_p.c
 *.ncb
