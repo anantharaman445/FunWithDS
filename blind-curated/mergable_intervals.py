@@ -1,54 +1,21 @@
-def is_mergable(a, b):
-    return (a[1] >= b[0]) 
 
-def is_reverse(a, b):
-    return (a[1] == a[0] or b[1] == b[0])
-
-# def sort_merge(a, b, ans):
-#     mergable = is_mergable(a, b)
-#     reverse = is_reverse(a, b)
-#     if mergable and  not reverse:
-#         res_list = list(set(sorted([y for x in [a,b] for y in x])))
-#         ans.append([res_list[0], res_list[len(res_list)-1]])
-#     elif reverse:
-#          ans.append(intervals[i+1])
-#          ans.append(intervals[i])
-#     else:
-#         ans.append(intervals[i])
-#         ans.append(intervals[i+1])
-    
-#     return ans
 
 
 def merge(intervals):
     ans = []
-    visited_index = {}
-    if len(intervals) == 1:
-        return [intervals[0]]
-    for i, interval in enumerate(intervals):
-        
-        if not visited_index.get(i):
-            if i+1 < len(intervals) or i==len(intervals):  
-                
-                mergable = is_mergable(intervals[i], intervals[i+1])
-                reverse = is_reverse(intervals[i], intervals[i+1])
-                # print(mergable, reverse)
-                if mergable and  not reverse:
-                    res_list = list(set(sorted([y for x in [intervals[i], intervals[i+1]] for y in x])))
-                    ans.append([res_list[0], res_list[len(res_list)-1]])
-                
-                elif reverse:
-                    ans.append(intervals[i+1])
-                    ans.append(intervals[i])
-                
-                else:
-                    ans.append(intervals[i])
-                    ans.append(intervals[i+1])   
+    
+    intervals = sorted(intervals, key=lambda x: x[0])
+    print(intervals)
+    merged_intervals = [intervals[0]]
 
-            visited_index[i] = True
-            visited_index[i+1] = True
+    for interval in intervals[1:]:
+        print(interval, merged_intervals[-1])
+        if interval[0] <= merged_intervals[-1][1]:
+            merged_intervals[-1][1] = max(merged_intervals[-1][1], interval[1])
+        else:
+            merged_intervals.append(interval)
+    return merged_intervals
 
-    return ans
 
 
 if __name__ == "__main__":
