@@ -1,6 +1,6 @@
 class Solution:
 
-    def binarysearch(self, low, high, arr, target):
+    def binarysearch(low, high, arr, target):
         if high < low:
             return -1
         mid = int((low + high)/2)
@@ -12,7 +12,7 @@ class Solution:
                                                 target);
         return binarySearch(arr, low, (mid -1), target);
     
-    def findpivot(self, arr, low, high):
+    def findpivot(arr, low, high):
         if high < low:
             return -1
         if high == low:
@@ -28,7 +28,7 @@ class Solution:
             return findPivot(arr, low, mid-1)
         return findPivot(arr, mid + 1, high)
 
-    def search(self, nums: List[int], target: int) -> int:
+    def search(nums: List[int], target: int) -> int:
         l=0
         n=len(nums)-1
         pivot = self.findPivot(nums, 0, n-1);
